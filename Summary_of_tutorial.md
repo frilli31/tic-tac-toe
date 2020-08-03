@@ -32,7 +32,20 @@ Every component has a variable `state`, that can be updated with method `setStat
 
 Every component can have a `constructor` (with argument `props`), whose first line is always `super(props)`.
 
-### Best Practices
+### Function components
+Function components are a simpler way to write components that only contain a render method and don’t have their own state. They are a function that takes props as input and returns what should be rendered.
+
+```jsx
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+```
+
+## Best Practices
 - To save typing and avoid the confusing behavior of this, we will use the arrow function syntax for event handlers
 - use 'string', not "string"
 - one HTML argument per line:
@@ -42,3 +55,9 @@ Every component can have a `constructor` (with argument `props`), whose first li
        onClick={() => this.setState({value: 'X'})}
     >
   ```
+- usually the state stay in the parent component (and he passes the value and an update function using `prop`)
+- it’s conventional to use on[Event] names for props which represent events and handle[Event] for the methods which handle the events
+-  Immutability Is Important
+    - Avoiding direct data mutation lets us keep previous versions of the game’s history intact, and reuse them later
+    - Detecting changes in immutable objects is considerably easier
+    - Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
