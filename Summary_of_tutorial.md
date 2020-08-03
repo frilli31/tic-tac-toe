@@ -55,7 +55,7 @@ function Square(props) {
        onClick={() => this.setState({value: 'X'})}
     >
   ```
-- usually the state stay in the parent component (and he passes the value and an update function using `prop`)
+- usually the state stay in the parent component (and he passes the value and an update function using `prop`) - **Lift state up**
 - it’s conventional to use on[Event] names for props which represent events and handle[Event] for the methods which handle the events
 -  Immutability Is Important
     - Avoiding direct data mutation lets us keep previous versions of the game’s history intact, and reuse them later
